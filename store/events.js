@@ -1,5 +1,8 @@
 import axios from 'axios'
 
+const baseURL =
+  'http://my-json-server.typicode.com/vueda/vue-mastery-scaling-vue-with-nuxt'
+
 export const state = () => ({
   events: [],
   event: {}
@@ -17,12 +20,12 @@ export const mutations = {
 export const actions = {
   fetchEvents({ commit }) {
     return axios
-      .get('http://localhost:3000/events')
+      .get(`${baseURL}/events`)
       .then(({ data }) => commit('SET_EVENTS', data))
   },
   fetchEvent({ commit }, id) {
     return axios
-      .get(`http://localhost:3000/events/${id}`)
+      .get(`${baseURL}/events/${id}`)
       .then(({ data }) => commit('SET_EVENT', data))
   }
 }
